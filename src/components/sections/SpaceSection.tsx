@@ -2,6 +2,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import { translations, t, tArr } from "@/i18n/translations";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Building, DoorOpen, Users, Lightbulb, Code2, Calendar } from "lucide-react";
+import spaceImg from "@/assets/space-image.jpg";
 
 const icons = [Building, DoorOpen, Users, Lightbulb, Code2, Calendar];
 
@@ -16,16 +17,26 @@ export function SpaceSection() {
           <p className="text-muted-foreground">{t(translations.space.subtitle, lang)}</p>
         </AnimatedSection>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {tArr(translations.space.items, lang).map((item, i) => {
-            const Icon = icons[i];
-            return (
-              <AnimatedSection key={i} delay={i * 0.1} className="flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40">
-                <Icon className="flex-shrink-0 text-primary" size={24} />
-                <span className="text-sm font-medium">{item}</span>
-              </AnimatedSection>
-            );
-          })}
+        <div className="grid gap-10 items-center md:grid-cols-2">
+          <AnimatedSection>
+            <img
+              src={spaceImg}
+              alt={t(translations.space.title, lang)}
+              className="rounded-xl border border-border object-cover w-full aspect-[4/3]"
+              loading="lazy"
+            />
+          </AnimatedSection>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {tArr(translations.space.items, lang).map((item, i) => {
+              const Icon = icons[i];
+              return (
+                <AnimatedSection key={i} delay={i * 0.1} className="flex items-center gap-4 rounded-xl border border-border bg-card p-5 transition-all hover:border-primary/40">
+                  <Icon className="flex-shrink-0 text-primary" size={24} />
+                  <span className="text-sm font-medium">{item}</span>
+                </AnimatedSection>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

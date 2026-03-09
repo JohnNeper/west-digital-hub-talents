@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 import { translations, t } from "@/i18n/translations";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -6,7 +7,6 @@ import { ArrowRight, Mail } from "lucide-react";
 
 export function CTASection() {
   const { lang } = useLang();
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <section className="py-24">
@@ -17,11 +17,11 @@ export function CTASection() {
             <h2 className="mb-4 font-heading text-3xl font-bold sm:text-4xl">{t(translations.cta.title, lang)}</h2>
             <p className="mx-auto mb-8 max-w-xl text-muted-foreground">{t(translations.cta.subtitle, lang)}</p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-              <Button size="lg" className="gradient-gold gap-2 font-semibold text-primary-foreground" onClick={() => scrollTo("contact")}>
-                {t(translations.cta.btn1, lang)} <ArrowRight size={18} />
+              <Button size="lg" asChild className="gradient-gold gap-2 font-semibold text-primary-foreground">
+                <Link to="/contact">{t(translations.cta.btn1, lang)} <ArrowRight size={18} /></Link>
               </Button>
-              <Button size="lg" variant="outline" className="gap-2 border-border" onClick={() => scrollTo("contact")}>
-                <Mail size={18} /> {t(translations.cta.btn2, lang)}
+              <Button size="lg" variant="outline" asChild className="gap-2 border-border">
+                <Link to="/contact"><Mail size={18} /> {t(translations.cta.btn2, lang)}</Link>
               </Button>
             </div>
           </div>
