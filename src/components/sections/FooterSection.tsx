@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 import { translations, t } from "@/i18n/translations";
 import { Button } from "@/components/ui/button";
@@ -9,23 +10,22 @@ export function FooterSection() {
   const { lang } = useLang();
   const [email, setEmail] = useState("");
 
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
   const navLinks = [
-    { label: t(translations.nav.about, lang), id: "about" },
-    { label: t(translations.nav.services, lang), id: "services" },
-    { label: t(translations.nav.expertise, lang), id: "expertise" },
-    { label: t(translations.nav.projects, lang), id: "projects" },
+    { label: t(translations.nav.home, lang), path: "/" },
+    { label: t(translations.nav.services, lang), path: "/services" },
+    { label: t(translations.nav.programs, lang), path: "/programs" },
+    { label: t(translations.nav.projects, lang), path: "/projects" },
+    { label: t(translations.nav.contact, lang), path: "/contact" },
   ];
 
   const serviceLinks = [
-    { label: t(translations.services.consulting.title, lang) },
-    { label: t(translations.services.development.title, lang) },
-    { label: t(translations.services.outsourcing.title, lang) },
+    { label: t(translations.services.consulting.title, lang), path: "/services" },
+    { label: t(translations.services.development.title, lang), path: "/services" },
+    { label: t(translations.services.outsourcing.title, lang), path: "/services" },
   ];
 
   return (
-    <footer id="contact" className="border-t border-border bg-card py-16">
+    <footer className="border-t border-border bg-card py-16">
       <div className="container mx-auto px-4">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
@@ -44,8 +44,8 @@ export function FooterSection() {
             <h4 className="mb-4 font-heading text-sm font-semibold">{t(translations.footer.quickLinks, lang)}</h4>
             <ul className="space-y-2">
               {navLinks.map((link) => (
-                <li key={link.id}>
-                  <button onClick={() => scrollTo(link.id)} className="text-sm text-muted-foreground transition-colors hover:text-primary">{link.label}</button>
+                <li key={link.path + link.label}>
+                  <Link to={link.path} className="text-sm text-muted-foreground transition-colors hover:text-primary">{link.label}</Link>
                 </li>
               ))}
             </ul>
@@ -57,7 +57,7 @@ export function FooterSection() {
             <ul className="space-y-2">
               {serviceLinks.map((link) => (
                 <li key={link.label}>
-                  <button onClick={() => scrollTo("services")} className="text-sm text-muted-foreground transition-colors hover:text-primary">{link.label}</button>
+                  <Link to={link.path} className="text-sm text-muted-foreground transition-colors hover:text-primary">{link.label}</Link>
                 </li>
               ))}
             </ul>

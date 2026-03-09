@@ -1,21 +1,21 @@
+import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 import { translations, t } from "@/i18n/translations";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, Eye } from "lucide-react";
+import heroImg from "@/assets/hero-image.jpg";
 
 export function HeroSection() {
   const { lang } = useLang();
 
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden pt-16">
-      {/* Background effects */}
+    <section className="relative flex min-h-[90vh] items-center overflow-hidden">
+      {/* Background image with overlay */}
       <div className="absolute inset-0">
+        <img src={heroImg} alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-background/85" />
         <div className="absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute right-0 top-0 h-[300px] w-[300px] rounded-full bg-accent/10 blur-[100px]" />
-        <div className="absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-primary/5 blur-[100px]" />
       </div>
 
       <div className="container relative z-10 mx-auto px-4 py-20">
@@ -54,14 +54,14 @@ export function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
           >
-            <Button size="lg" className="gradient-gold gap-2 font-semibold text-primary-foreground" onClick={() => scrollTo("contact")}>
-              {t(translations.hero.cta1, lang)} <ArrowRight size={18} />
+            <Button size="lg" asChild className="gradient-gold gap-2 font-semibold text-primary-foreground">
+              <Link to="/contact">{t(translations.hero.cta1, lang)} <ArrowRight size={18} /></Link>
             </Button>
-            <Button size="lg" variant="outline" className="gap-2 border-border text-foreground hover:border-primary hover:text-primary" onClick={() => scrollTo("contact")}>
-              <Phone size={18} /> {t(translations.hero.cta2, lang)}
+            <Button size="lg" variant="outline" asChild className="gap-2 border-border text-foreground hover:border-primary hover:text-primary">
+              <Link to="/contact"><Phone size={18} /> {t(translations.hero.cta2, lang)}</Link>
             </Button>
-            <Button size="lg" variant="ghost" className="gap-2 text-muted-foreground hover:text-primary" onClick={() => scrollTo("services")}>
-              <Eye size={18} /> {t(translations.hero.cta3, lang)}
+            <Button size="lg" variant="ghost" asChild className="gap-2 text-muted-foreground hover:text-primary">
+              <Link to="/services"><Eye size={18} /> {t(translations.hero.cta3, lang)}</Link>
             </Button>
           </motion.div>
         </div>

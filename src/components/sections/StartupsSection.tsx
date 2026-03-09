@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
 import { translations, t, tArr } from "@/i18n/translations";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -6,7 +7,6 @@ import { Rocket, Check } from "lucide-react";
 
 export function StartupsSection() {
   const { lang } = useLang();
-  const scrollTo = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <section id="startups" className="py-24">
@@ -25,8 +25,8 @@ export function StartupsSection() {
                 </div>
               ))}
             </div>
-            <Button size="lg" className="gradient-gold font-semibold text-primary-foreground" onClick={() => scrollTo("contact")}>
-              {t(translations.startups.cta, lang)}
+            <Button size="lg" asChild className="gradient-gold font-semibold text-primary-foreground">
+              <Link to="/contact">{t(translations.startups.cta, lang)}</Link>
             </Button>
           </AnimatedSection>
         </div>
