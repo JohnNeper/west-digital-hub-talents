@@ -4,11 +4,41 @@ import { useLang } from "@/i18n/LanguageContext";
 import { translations, t } from "@/i18n/translations";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { MapPin, Mail, Phone, Linkedin, Twitter, Facebook, ArrowRight } from "lucide-react";
+import { MapPin, Mail, Phone, Linkedin, Twitter, Facebook, ArrowRight, Check, Loader2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+
+const NEWSLETTER_EMAIL = "ngnigupepafaha@gmail.com";
 
 export function FooterSection() {
   const { lang } = useLang();
   const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const { toast } = useToast();
+
+  const handleNewsletter = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+
+    setStatus("sending");
+
+    // Send via mailto with pre-filled subject/body
+    const subject = encodeURIComponent("Newsletter Subscription - West Digital Hub");
+    const body = encodeURIComponent(`New newsletter subscription request:\n\nEmail: ${email}\nDate: ${new Date().toLocaleDateString()}\n\nThis subscriber would like to receive updates from West Digital Hub.`);
+
+    window.open(`mailto:${NEWSLETTER_EMAIL}?subject=${subject}&body=${body}`, "_blank");
+
+    setTimeout(() => {
+      setStatus("sent");
+      toast({
+        title: lang === "en" ? "Subscription request sent!" : "Demande d'abonnement envoyée !",
+        description: lang === "en"
+          ? "Your email client should open. Please send the pre-filled email to complete your subscription."
+          : "Votre client email devrait s'ouvrir. Envoyez l'email pré-rempli pour compléter votre abonnement.",
+      });
+      setEmail("");
+      setTimeout(() => setStatus("idle"), 3000);
+    }, 500);
+  };
 
   const navLinks = [
     { label: t(translations.nav.home, lang), path: "/" },
@@ -75,16 +105,29 @@ export function FooterSection() {
             </ul>
 
             <h4 className="mb-3 text-xs font-semibold uppercase tracking-[0.15em] text-foreground">{t(translations.footer.newsletter, lang)}</h4>
-            <form onSubmit={(e) => { e.preventDefault(); setEmail(""); }} className="flex gap-2">
+            <form onSubmit={handleNewsletter} className="flex gap-2">
               <Input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t(translations.footer.newsletterPlaceholder, lang)}
                 className="h-9 bg-background/50 border-border/50 text-sm"
+                required
+                disabled={status === "sending"}
               />
-              <Button type="submit" size="sm" className="gradient-gold text-primary-foreground px-3">
-                <ArrowRight size={14} />
+              <Button
+                type="submit"
+                size="sm"
+                className="gradient-gold text-primary-foreground px-3"
+                disabled={status === "sending" || status === "sent"}
+              >
+                {status === "sending" ? (
+                  <Loader2 size={14} className="animate-spin" />
+                ) : status === "sent" ? (
+                  <Check size={14} />
+                ) : (
+                  <ArrowRight size={14} />
+                )}
               </Button>
             </form>
           </div>
