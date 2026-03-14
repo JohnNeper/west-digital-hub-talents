@@ -138,7 +138,7 @@ export default function ProgramsPage() {
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={trainingProcessImg} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-background/96 dark:bg-background/93 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-gradient-to-b from-background via-background/98 to-background/95 dark:from-background/95 dark:via-background/92 dark:to-background/90" />
         </div>
         <div className="container relative z-10 mx-auto px-4">
           <AnimatedSection className="mx-auto max-w-3xl text-center">
@@ -151,11 +151,11 @@ export default function ProgramsPage() {
               <GraduationCap size={14} />
               {lang === "en" ? "International Standards · Partner Validated" : "Standards Internationaux · Validé par nos Partenaires"}
             </motion.div>
-            <h1 className="mb-5 font-heading text-4xl font-bold sm:text-5xl lg:text-6xl">
+            <h1 className="mb-5 font-heading text-4xl font-bold text-foreground sm:text-5xl lg:text-6xl">
               {lang === "en" ? "Launch Your " : "Lancez Votre "}
               <span className="text-gradient-gold">{lang === "en" ? "Tech Career" : "Carrière Tech"}</span>
             </h1>
-            <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
+            <p className="text-lg text-foreground/70 mb-10 max-w-2xl mx-auto">
               {lang === "en"
                 ? "From interview to certification — our rigorous, internationally validated programs prepare you for the global tech market."
                 : "De l'entretien à la certification — nos programmes rigoureux et validés internationalement vous préparent pour le marché tech mondial."}
