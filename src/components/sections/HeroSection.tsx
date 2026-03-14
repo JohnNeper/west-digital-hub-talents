@@ -17,7 +17,7 @@ export function HeroSection() {
       <section className="relative flex min-h-[92vh] items-center overflow-hidden">
         <div className="absolute inset-0">
           <img src={heroImg} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-background/92 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-background/95 dark:bg-background/92 backdrop-blur-sm" />
           <div className="absolute left-1/2 top-1/4 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-primary/6 blur-[180px]" />
           <div className="absolute right-0 bottom-0 h-[400px] w-[400px] rounded-full bg-accent/4 blur-[120px]" />
         </div>

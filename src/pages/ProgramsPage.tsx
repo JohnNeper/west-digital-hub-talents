@@ -138,7 +138,7 @@ export default function ProgramsPage() {
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={trainingProcessImg} alt="" className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-background/93 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-background/96 dark:bg-background/93 backdrop-blur-sm" />
         </div>
         <div className="container relative z-10 mx-auto px-4">
           <AnimatedSection className="mx-auto max-w-3xl text-center">
