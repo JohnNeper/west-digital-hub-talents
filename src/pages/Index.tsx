@@ -10,6 +10,7 @@ import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { StartupsSection } from "@/components/sections/StartupsSection";
 import { OutsourcingSection } from "@/components/sections/OutsourcingSection";
 import { SpaceSection } from "@/components/sections/SpaceSection";
+import { SalesTeaser } from "@/components/sections/SalesTeaser";
 import { CTASection } from "@/components/sections/CTASection";
 
 const Index = () => (
@@ -21,6 +22,7 @@ const Index = () => (
     <AcademySection />
     <WhyUsSection />
     <ExpertiseSection />
+    <SalesTeaser />
     <TestimonialsSection />
     <StartupsSection />
     <OutsourcingSection />
