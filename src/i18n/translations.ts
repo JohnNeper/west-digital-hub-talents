@@ -12,6 +12,7 @@ export const translations = {
     programs: { en: "Programs", fr: "Programmes" },
     projects: { en: "Projects", fr: "Projets" },
     contact: { en: "Contact", fr: "Contact" },
+    sales: { en: "Sales", fr: "Ventes" },
     startProject: { en: "Start a Project", fr: "Lancer un Projet" },
   },
   hero: {
