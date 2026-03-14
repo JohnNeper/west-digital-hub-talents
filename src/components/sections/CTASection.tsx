@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { useLang } from "@/i18n/LanguageContext";
-import { translations, t } from "@/i18n/translations";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { BookingModal } from "@/components/BookingModal";
-import { ArrowRight, Calendar, Sparkles } from "lucide-react";
+import { Calendar, Sparkles } from "lucide-react";
 
 export function CTASection() {
   const { lang } = useLang();
@@ -20,17 +18,27 @@ export function CTASection() {
               <Sparkles size={60} className="text-primary" />
             </div>
             <div className="relative z-10">
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary">{lang === "en" ? "Get Started" : "Commencer"}</p>
-              <h2 className="mb-4 font-heading text-3xl font-bold sm:text-4xl lg:text-5xl">{t(translations.cta.title, lang)}</h2>
-              <p className="mx-auto mb-10 max-w-xl text-muted-foreground leading-relaxed">{t(translations.cta.subtitle, lang)}</p>
-              <div className="flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-                <Button size="lg" asChild className="gradient-gold gap-2 font-semibold text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-shadow">
-                  <Link to="/contact">{t(translations.cta.btn1, lang)} <ArrowRight size={16} /></Link>
-                </Button>
-                <Button size="lg" variant="outline" className="gap-2 border-border/80 hover:border-primary/40 transition-all" onClick={() => setBookingOpen(true)}>
-                  <Calendar size={16} /> {lang === "en" ? "Book a Call" : "Prendre RDV"}
-                </Button>
-              </div>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                {lang === "en" ? "Get Started" : "Commencer"}
+              </p>
+              <h2 className="mb-4 font-heading text-3xl font-bold sm:text-4xl lg:text-5xl">
+                {lang === "en"
+                  ? "Ready to Build Your Next Digital Product?"
+                  : "Prêt à Construire Votre Prochain Produit Numérique ?"}
+              </h2>
+              <p className="mx-auto mb-10 max-w-xl text-muted-foreground leading-relaxed">
+                {lang === "en"
+                  ? "Schedule a free consultation and let's discuss how we can bring your vision to life."
+                  : "Planifiez une consultation gratuite et discutons de comment donner vie à votre vision."}
+              </p>
+              <Button
+                size="lg"
+                className="gradient-gold gap-2 font-semibold text-primary-foreground shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-shadow"
+                onClick={() => setBookingOpen(true)}
+              >
+                <Calendar size={16} />
+                {lang === "en" ? "Free Trial" : "Essai Gratuit"}
+              </Button>
             </div>
           </AnimatedSection>
         </div>
