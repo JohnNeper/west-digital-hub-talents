@@ -18,7 +18,7 @@ export function OutsourcingSection() {
           <h2 className="mb-4 font-heading text-3xl font-bold sm:text-4xl">{t(translations.outsourcingSection.title, lang)}</h2>
           <p className="mb-8 text-muted-foreground leading-relaxed">{t(translations.outsourcingSection.description, lang)}</p>
           <Button size="lg" variant="outline" asChild className="gap-2 border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all">
-            <Link to="/contact">{t(translations.outsourcingSection.cta, lang)} <ArrowRight size={16} /></Link>
+            <Link to="/outsourcing">{t(translations.outsourcingSection.cta, lang)} <ArrowRight size={16} /></Link>
           </Button>
         </AnimatedSection>
       </div>

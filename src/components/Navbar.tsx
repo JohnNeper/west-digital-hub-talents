@@ -10,6 +10,7 @@ import { Menu, X, Sun, Moon, Calendar } from "lucide-react";
 const navItems = [
   { key: "home", path: "/" },
   { key: "services", path: "/services" },
+  { key: "outsourcing", path: "/outsourcing" },
   { key: "programs", path: "/programs" },
   { key: "sales", path: "/sales" },
   { key: "projects", path: "/projects" },
