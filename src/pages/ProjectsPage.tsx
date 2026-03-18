@@ -26,6 +26,7 @@ export default function ProjectsPage() {
         description="Explore our portfolio of 50+ delivered projects across fintech, agritech, healthtech and edtech. See how we build scalable digital products."
         keywords="software portfolio, tech projects Africa, fintech development, case studies, digital products"
       />
+      <section className="py-24">
         <div className="container mx-auto px-4">
           <AnimatedSection className="mb-16 text-center">
             <h1 className="mb-4 font-heading text-4xl font-bold sm:text-5xl">{t(translations.projects.title, lang)}</h1>
