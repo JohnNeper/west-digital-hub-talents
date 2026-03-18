@@ -16,7 +16,9 @@ const LanguageContext = createContext<LanguageContextType>({
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>(() => {
     const stored = localStorage.getItem("wdh-lang");
-    return (stored === "fr" ? "fr" : "en") as Lang;
+    if (stored === "fr" || stored === "en") return stored;
+    const browserLang = navigator.language || (navigator as any).userLanguage || "en";
+    return browserLang.startsWith("fr") ? "fr" : "en";
   });
 
   const setLang = (l: Lang) => {
