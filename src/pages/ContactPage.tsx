@@ -13,7 +13,11 @@ export default function ContactPage() {
 
   return (
     <Layout>
-      <section className="py-24">
+      <SEOHead
+        title="Contact Us — Get in Touch"
+        description="Contact West Digital Hub for a free consultation. Book a call, start a project, or learn about our services. Based in Cameroon, serving worldwide."
+        keywords="contact West Digital Hub, book consultation, tech company Cameroon, free consultation"
+      />
         <div className="container mx-auto px-4">
           <AnimatedSection className="mx-auto max-w-3xl text-center mb-16">
             <h1 className="mb-4 font-heading text-4xl font-bold sm:text-5xl">{t(translations.contact.title, lang)}</h1>

@@ -98,7 +98,11 @@ export default function SalesPage() {
 
   return (
     <Layout>
-      {/* Hero */}
+      <SEOHead
+        title="Sales & Marketing — Digital Marketing & Community Management"
+        description="Boost your brand awareness, generate qualified leads and close more deals with our digital marketing and community management services."
+        keywords="digital marketing Cameroon, community management, social media marketing Africa, lead generation, SEO services"
+      />
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={salesHero} alt="" className="h-full w-full object-cover" />
