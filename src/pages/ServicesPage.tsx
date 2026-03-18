@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { useLang } from "@/i18n/LanguageContext";
 import { translations, t, tArr } from "@/i18n/translations";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -80,7 +81,11 @@ export default function ServicesPage() {
 
   return (
     <Layout>
-      {/* Hero */}
+      <SEOHead
+        title="Digital Services — Consulting, Development & Outsourcing"
+        description="World-class digital services: IT consulting, custom software development, tech outsourcing and academy training. Save 40-60% with top African engineers."
+        keywords="IT consulting Cameroon, software development Africa, tech outsourcing, custom software, web development services"
+      />
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-primary/3 to-transparent" />
         <div className="container relative z-10 mx-auto px-4">

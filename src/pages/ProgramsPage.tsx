@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { useLang } from "@/i18n/LanguageContext";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
@@ -134,7 +135,11 @@ export default function ProgramsPage() {
 
   return (
     <Layout>
-      {/* Hero */}
+      <SEOHead
+        title="Bootcamp & Academy — Launch Your Tech Career"
+        description="Intensive bootcamp programs in Web Development, Mobile, AI & Cybersecurity. 92% employment rate. Online and on-site in Cameroon. Apply now."
+        keywords="bootcamp Cameroon, coding bootcamp Africa, tech training, web development course, AI training, internship Cameroon"
+      />
       <section className="relative py-28 overflow-hidden">
         <div className="absolute inset-0">
           <img src={trainingProcessImg} alt="" className="h-full w-full object-cover" />

@@ -1,4 +1,5 @@
 import { Layout } from "@/components/Layout";
+import { SEOHead } from "@/components/SEOHead";
 import { useLang } from "@/i18n/LanguageContext";
 import { translations, t } from "@/i18n/translations";
 import { AnimatedSection } from "@/components/AnimatedSection";
@@ -20,6 +21,11 @@ export default function ProjectsPage() {
 
   return (
     <Layout>
+      <SEOHead
+        title="Our Projects — Portfolio & Case Studies"
+        description="Explore our portfolio of 50+ delivered projects across fintech, agritech, healthtech and edtech. See how we build scalable digital products."
+        keywords="software portfolio, tech projects Africa, fintech development, case studies, digital products"
+      />
       <section className="py-24">
         <div className="container mx-auto px-4">
           <AnimatedSection className="mb-16 text-center">
