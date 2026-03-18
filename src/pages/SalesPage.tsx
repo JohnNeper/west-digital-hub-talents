@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Layout } from "@/components/Layout";
 import { SEOHead } from "@/components/SEOHead";
 import { useLang } from "@/i18n/LanguageContext";
-import { useLang } from "@/i18n/LanguageContext";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { Button } from "@/components/ui/button";
 import { BookingModal } from "@/components/BookingModal";
