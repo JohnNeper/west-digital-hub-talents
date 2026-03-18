@@ -43,7 +43,9 @@ export function FooterSection() {
   const navLinks = [
     { label: t(translations.nav.home, lang), path: "/" },
     { label: t(translations.nav.services, lang), path: "/services" },
+    { label: t(translations.nav.outsourcing, lang), path: "/outsourcing" },
     { label: t(translations.nav.programs, lang), path: "/programs" },
+    { label: t(translations.nav.sales, lang), path: "/sales" },
     { label: t(translations.nav.projects, lang), path: "/projects" },
     { label: t(translations.nav.contact, lang), path: "/contact" },
   ];
